@@ -1,0 +1,231 @@
+{
+    "name": "TravelAgent",
+    "description": null,
+    "intents": [{
+        "intentName": "BookFlight",
+        "intentVersion": "44"
+    }, {
+        "intentName": "Greetings",
+        "intentVersion": "5"
+    }],
+    "clarificationPrompt": {
+        "messages": [
+            { "contentType": "PlainText", "content": "Sorry, can you please repeat that?" }
+        ],
+        "maxAttempts": 5,
+        "responseCard": null
+    },
+    "abortStatement": {
+        "messages": [
+            { "contentType": "PlainText", "content": "Sorry, I could not understand. Goodbye." }
+        ],
+        "responseCard": null
+    },
+    "status": "READY",
+    "failureReason": null,
+    "lastUpdatedDate": "2017-07-18T04:56:19.411Z",
+    "createdDate": "2017-07-03T22:53:22.672Z",
+    "idleSessionTTLInSeconds": 300,
+    "voiceId": "Salli",
+    "checksum": "36b434e3-4a09-40d6-9144-4c6f9ae95393",
+    "version": "$LATEST",
+    "locale": "en-US",
+    "childDirected": false,
+    "dependencies": {
+        "intents": [{
+            "name": "Greetings",
+            "description": null,
+            "slots": [{
+                "name": "placeholderonly",
+                "description": null,
+                "slotConstraint": "Required",
+                "slotType": "genericNames",
+                "slotTypeVersion": "2",
+                "valueElicitationPrompt": {
+                    "messages": [
+                        { "contentType": "PlainText", "content": "How can I help you?" }, { "contentType": "PlainText", "content": "How can I help you today?" }, { "contentType": "PlainText", "content": "Greetings traveller!" }
+                    ],
+                    "maxAttempts": 5,
+                    "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"buttons\":[]}]}"
+                },
+                "priority": 1,
+                "sampleUtterances": [],
+                "responseCard": null
+            }],
+            "sampleUtterances": ["Hi", "Hello", "Good morning", "Hey"],
+            "fulfillmentActivity": { "type": "ReturnIntent" },
+            "parentIntentSignature": null,
+            "lastUpdatedDate": "2017-07-12T13:08:44.781Z",
+            "createdDate": "2017-07-12T13:08:44.781Z",
+            "version": "5",
+            "checksum": "e1ee3f18-b5c7-405f-8e09-258979896c2c"
+        }, {
+            "name": "BookFlight",
+            "description": null,
+            "slots": [{
+                "name": "ReturnDate",
+                "description": null,
+                "slotConstraint": "Optional",
+                "slotType": "AMAZON.DATE",
+                "slotTypeVersion": null,
+                "valueElicitationPrompt": { "messages": [{ "contentType": "PlainText", "content": "When will you return?" }], "maxAttempts": 2, "responseCard": null },
+                "priority": 5,
+                "sampleUtterances": [],
+                "responseCard": null
+            }, {
+                "name": "Cabin",
+                "description": null,
+                "slotConstraint": "Required",
+                "slotType": "CabinType",
+                "slotTypeVersion": "1",
+                "valueElicitationPrompt": {
+                    "messages": [
+                        { "contentType": "PlainText", "content": "What class do you prefer?" }
+                    ],
+                    "maxAttempts": 2,
+                    "responseCard": null
+                },
+                "priority": 6,
+                "sampleUtterances": [],
+                "responseCard": null
+            }, {
+                "name": "DestinationCity",
+                "description": null,
+                "slotConstraint": "Required",
+                "slotType": "AMAZON.Airport",
+                "slotTypeVersion": null,
+                "valueElicitationPrompt": { "messages": [{ "contentType": "PlainText", "content": "Which city are you going to?" }], "maxAttempts": 2, "responseCard": null },
+                "priority": 2,
+                "sampleUtterances": [],
+                "responseCard": null
+            }, {
+                "name": "TripType",
+                "description": null,
+                "slotConstraint": "Required",
+                "slotType": "TripType",
+                "slotTypeVersion": "2",
+                "valueElicitationPrompt": { "messages": [{ "contentType": "PlainText", "content": "Are you travelling single way or roundtrip?" }], "maxAttempts": 2, "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"buttons\":[{\"text\":\"One Way\",\"value\":\"One Way\"},{\"text\":\"Round Trip\",\"value\":\"Round Trip\"}]}]}" },
+                "priority": 4,
+                "sampleUtterances": [],
+                "responseCard": null
+            }, {
+                "name": "DepartureCity",
+                "description": null,
+                "slotConstraint": "Required",
+                "slotType": "AMAZON.Airport",
+                "slotTypeVersion": null,
+                "valueElicitationPrompt": { "messages": [{ "contentType": "PlainText", "content": "Which city are you departing from?" }], "maxAttempts": 2, "responseCard": null },
+                "priority": 1,
+                "sampleUtterances": [],
+                "responseCard": null
+            }, {
+                "name": "Alliance",
+                "description": null,
+                "slotConstraint": "Required",
+                "slotType": "AllianceType",
+                "slotTypeVersion": "1",
+                "valueElicitationPrompt": { "messages": [{ "contentType": "PlainText", "content": "Any preferred Alliance?" }], "maxAttempts": 2, "responseCard": null },
+                "priority": 10,
+                "sampleUtterances": [],
+                "responseCard": null
+            }, {
+                "name": "Option",
+                "description": null,
+                "slotConstraint": "Required",
+                "slotType": "AMAZON.NUMBER",
+                "slotTypeVersion": null,
+                "valueElicitationPrompt": { "messages": [{ "contentType": "PlainText", "content": "Which option do you like to go with?" }], "maxAttempts": 2, "responseCard": null },
+                "priority": 11,
+                "sampleUtterances": [],
+                "responseCard": null
+            }, {
+                "name": "Infants",
+                "description": null,
+                "slotConstraint": "Required",
+                "slotType": "AMAZON.NUMBER",
+                "slotTypeVersion": null,
+                "valueElicitationPrompt": { "messages": [{ "contentType": "PlainText", "content": "Any infants travelling with you?" }], "maxAttempts": 2, "responseCard": null },
+                "priority": 8,
+                "sampleUtterances": [],
+                "responseCard": null
+            }, {
+                "name": "Adults",
+                "description": null,
+                "slotConstraint": "Required",
+                "slotType": "AMAZON.NUMBER",
+                "slotTypeVersion": null,
+                "valueElicitationPrompt": { "messages": [{ "contentType": "PlainText", "content": "How many adult passengers for the trip?" }], "maxAttempts": 2, "responseCard": null },
+                "priority": 7,
+                "sampleUtterances": [],
+                "responseCard": null
+            }, {
+                "name": "DepartureDate",
+                "description": null,
+                "slotConstraint": "Required",
+                "slotType": "AMAZON.DATE",
+                "slotTypeVersion": null,
+                "valueElicitationPrompt": { "messages": [{ "contentType": "PlainText", "content": "When are you planning to depart?" }], "maxAttempts": 2, "responseCard": null },
+                "priority": 3,
+                "sampleUtterances": [],
+                "responseCard": null
+            }, {
+                "name": "Children",
+                "description": null,
+                "slotConstraint": "Required",
+                "slotType": "AMAZON.NUMBER",
+                "slotTypeVersion": null,
+                "valueElicitationPrompt": { "messages": [{ "contentType": "PlainText", "content": "Any children travelling with you?" }], "maxAttempts": 2, "responseCard": null },
+                "priority": 9,
+                "sampleUtterances": [],
+                "responseCard": null
+            }],
+            "sampleUtterances": [
+                "I would like to book a flight from {DepartureCity} to {DestinationCity}",
+                "I would like to book a flight on {DepartureDate} from {DepartureCity} to {DestinationCity}", "Book me a flight", "book a flight from {DepartureCity} to {DestinationCity} departing {DepartureDate}", "Book a flight from {DepartureCity} to {DestinationCity} on {DepartureDate}", "book a flight from {DepartureCity} to {DestinationCity} departing on {DepartureDate} {TripType}", "I would like to book a flight on {DepartureDate} from {DepartureCity} to {DestinationCity} {TripType}", "I would like to book a flight from {DepartureCity} to {DestinationCity} {TripType}", "I would like to book a flight from {DepartureCity} to {DestinationCity} {TripType} {Cabin} {Adults} adults", "I would like to book a flight from {DepartureCity} to {DestinationCity} departs on {DepartureDate} returns on {ReturnDate} {Cabin}", "I would like to book a flight from {DepartureCity} to {DestinationCity} departs on {DepartureDate} returns on {ReturnDate}", "I would like to book a flight from {DepartureCity} to {DestinationCity} {TripType}  {Adults} adults {Infants} infant", "I would like to book a flight from {DepartureCity} to {DestinationCity} {TripType} {Adults} adults {Infants} infant {Children} Children.", "I would like to book a flight from {DepartureCity} to {DestinationCity} {TripType} {Adults} adults {Infants} infant {Children} Child", "I would like to book a flight from {DepartureCity} to {DestinationCity} {TripType} {Adults} adults {Children} Children.", "I would like to book a flight from {DepartureCity} to {DestinationCity} {TripType} {Adults} adults {Infants} infant {Children} Children {Cabin} Cabin", "I would like to book a flight from {DepartureCity} to {DestinationCity} {TripType} {Adults} adults {Infants} infants {Children} Children", "I would like to book a flight from {DepartureCity} to {DestinationCity} {TripType} {Adults} adult {Infants} infant {Children} Child"
+            ],
+            "dialogCodeHook": { "uri": "arn:aws:lambda:us-east-1:000000000000:function:TravelAgentController", "messageVersion": "1.0" },
+            "fulfillmentActivity": {
+                "type": "CodeHook",
+                "codeHook": { "uri": "arn:aws:lambda:us-east-1:000000000000:function:TravelAgentController", "messageVersion": "1.0" }
+            },
+            "parentIntentSignature": null,
+            "lastUpdatedDate": "2017-07-18T04:55:44.616Z",
+            "createdDate": "2017-07-18T04:55:44.616Z",
+            "version": "44",
+            "checksum": "9c0f0c96-0a0d-4dfa-ac9b-b82d5b7b735a"
+        }],
+        "slotTypes": [{
+            "name": "AllianceType",
+            "description": null,
+            "enumerationValues": [{ "value": "SkyTeam" }, { "value": "Star" }, { "value": "oneworld" }],
+            "lastUpdatedDate": "2017-07-16T11:21:34.828Z",
+            "createdDate": "2017-07-16T11:21:34.828Z",
+            "version": "1",
+            "checksum": null
+        }, {
+            "name": "genericNames",
+            "description": null,
+            "enumerationValues": [{ "value": "Test Engine 2" }, { "value": "Test Engine 1" }, { "value": "Production Engine A" }, { "value": "Production Engine B" }],
+            "lastUpdatedDate": "2017-07-11T03:56:23.765Z",
+            "createdDate": "2017-07-11T03:56:23.765Z",
+            "version": "2",
+            "checksum": null
+        }, {
+            "name": "CabinType",
+            "description": null,
+            "enumerationValues": [{ "value": "First Class" }, { "value": "Economy" }, { "value": "Premium Economy" }, { "value": "Business" }],
+            "lastUpdatedDate": "2017-07-16T11:15:59.064Z",
+            "createdDate": "2017-07-16T11:15:59.064Z",
+            "version": "1",
+            "checksum": null
+        }, {
+            "name": "TripType",
+            "description": null,
+            "enumerationValues": [{ "value": "One Way" }, { "value": "Round Trip" }],
+            "lastUpdatedDate": "2017-07-16T06:06:52.145Z",
+            "createdDate": "2017-07-16T06:06:52.145Z",
+            "version": "2",
+            "checksum": null
+        }]
+    }
+}
